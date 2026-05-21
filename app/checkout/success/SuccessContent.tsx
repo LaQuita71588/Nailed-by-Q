@@ -23,7 +23,6 @@ export default function SuccessContent() {
       return;
     }
 
-    // Fetch order details from platform API
     const fetchOrder = async () => {
       try {
         const res = await fetch(
@@ -44,73 +43,166 @@ export default function SuccessContent() {
   }, [sessionId]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-16">
+    <div
+      className="min-h-screen flex items-center justify-center px-6 py-20"
+      style={{ backgroundColor: "#0A0A0A" }}
+    >
       <div
-        className="max-w-md w-full crayon-card p-8 text-center"
-        style={{ backgroundColor: "#fff" }}
+        style={{
+          maxWidth: "480px",
+          width: "100%",
+          backgroundColor: "#111111",
+          border: "1px solid rgba(201,169,110,0.2)",
+          padding: "56px 48px",
+          textAlign: "center",
+        }}
       >
         {loading ? (
-          <div className="text-5xl float-anim">⏳</div>
+          <div
+            style={{
+              color: "#C9A96E",
+              fontSize: "2rem",
+              opacity: 0.6,
+            }}
+          >
+            ◆
+          </div>
         ) : (
           <>
-            <div className="text-7xl mb-4 float-anim">💅</div>
-            <h1
-              className="text-3xl font-black mb-2"
-              style={{ color: "#FF1F8F" }}
+            {/* Accent */}
+            <div
+              style={{
+                color: "#C9A96E",
+                fontSize: "2.5rem",
+                marginBottom: "28px",
+                lineHeight: 1,
+              }}
             >
-              Order Confirmed!
+              ✦
+            </div>
+
+            <h1
+              style={{
+                fontFamily: "var(--font-playfair), 'Playfair Display', serif",
+                color: "#F5F0EB",
+                fontSize: "2rem",
+                fontWeight: 700,
+                marginBottom: "12px",
+              }}
+            >
+              Order Confirmed
             </h1>
-            <p className="text-lg font-bold opacity-70 mb-6">
-              You&apos;re about to be SNATCHED. Your nails are on their way! ✨
+
+            <p
+              style={{
+                color: "#9E9E9E",
+                fontFamily: "var(--font-inter), 'Inter', sans-serif",
+                fontSize: "0.9rem",
+                lineHeight: 1.7,
+                marginBottom: "36px",
+              }}
+            >
+              Your nails are on their way. Expect something exceptional.
             </p>
 
             {sessionId && (
               <div
-                className="rounded-xl p-3 mb-6 text-xs font-mono opacity-60"
-                style={{ backgroundColor: "#F5E6FF" }}
+                style={{
+                  background: "rgba(201,169,110,0.06)",
+                  border: "1px solid rgba(201,169,110,0.15)",
+                  padding: "12px 20px",
+                  marginBottom: "28px",
+                }}
               >
-                Order #{sessionId.slice(-8).toUpperCase()}
+                <p
+                  style={{
+                    color: "#9E9E9E",
+                    fontFamily: "var(--font-inter), 'Inter', sans-serif",
+                    fontSize: "0.65rem",
+                    letterSpacing: "0.2em",
+                    textTransform: "uppercase",
+                    marginBottom: "4px",
+                  }}
+                >
+                  Order Reference
+                </p>
+                <p
+                  style={{
+                    color: "#C9A96E",
+                    fontFamily: "var(--font-inter), 'Inter', sans-serif",
+                    fontSize: "0.8rem",
+                    letterSpacing: "0.1em",
+                  }}
+                >
+                  #{sessionId.slice(-8).toUpperCase()}
+                </p>
               </div>
             )}
 
             {order && (
               <div
-                className="rounded-xl p-4 mb-6 text-left text-sm"
-                style={{ backgroundColor: "#FFF8F0", border: "2px solid #FFE500" }}
+                style={{
+                  background: "rgba(201,169,110,0.04)",
+                  border: "1px solid rgba(201,169,110,0.12)",
+                  padding: "16px 20px",
+                  marginBottom: "28px",
+                  textAlign: "left",
+                }}
               >
                 {order.status && (
-                  <p className="font-bold">
+                  <p
+                    style={{
+                      color: "#F5F0EB",
+                      fontFamily: "var(--font-inter), 'Inter', sans-serif",
+                      fontSize: "0.78rem",
+                    }}
+                  >
                     Status:{" "}
-                    <span style={{ color: "#FF1F8F" }}>{order.status}</span>
+                    <span style={{ color: "#C9A96E" }}>{order.status}</span>
                   </p>
                 )}
                 {order.total && (
-                  <p className="font-bold mt-1">Total: {order.total}</p>
+                  <p
+                    style={{
+                      color: "#F5F0EB",
+                      fontFamily: "var(--font-inter), 'Inter', sans-serif",
+                      fontSize: "0.78rem",
+                      marginTop: "6px",
+                    }}
+                  >
+                    Total:{" "}
+                    <span style={{ color: "#C9A96E" }}>{order.total}</span>
+                  </p>
                 )}
               </div>
             )}
 
-            <div className="space-y-3">
-              <p className="text-sm font-semibold opacity-60">
-                📦 All nail sets include nail glue. Check your email for
-                tracking info!
-              </p>
-              <div className="flex flex-col gap-3 mt-4">
-                <Link
-                  href="/"
-                  className="crayon-btn px-6 py-3 text-center"
-                  style={{ backgroundColor: "#FF1F8F", color: "#fff" }}
-                >
-                  💅 Keep Shopping
-                </Link>
-                <Link
-                  href="/category/zodiac"
-                  className="crayon-btn px-6 py-3 text-center"
-                  style={{ backgroundColor: "#8B2BE2", color: "#fff" }}
-                >
-                  ♊ Shop Zodiac
-                </Link>
-              </div>
+            <p
+              style={{
+                color: "rgba(158,158,158,0.7)",
+                fontFamily: "var(--font-inter), 'Inter', sans-serif",
+                fontSize: "0.75rem",
+                lineHeight: 1.6,
+                marginBottom: "32px",
+              }}
+            >
+              Nail glue is available as a separate add-on. Check your email
+              for shipping details.
+            </p>
+
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "12px" }}
+            >
+              <Link href="/" className="btn-gold" style={{ textAlign: "center" }}>
+                Continue Shopping
+              </Link>
+              <Link
+                href="/category/zodiac"
+                className="btn-outline"
+                style={{ textAlign: "center" }}
+              >
+                Explore Zodiac Collection
+              </Link>
             </div>
           </>
         )}

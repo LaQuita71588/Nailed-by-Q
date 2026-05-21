@@ -2,54 +2,111 @@ import Link from "next/link";
 
 export default function CheckoutCanceledPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-16">
+    <div
+      className="min-h-screen flex items-center justify-center px-6 py-20"
+      style={{ backgroundColor: "#0A0A0A" }}
+    >
       <div
-        className="max-w-md w-full crayon-card p-8 text-center"
-        style={{ backgroundColor: "#fff" }}
+        style={{
+          maxWidth: "480px",
+          width: "100%",
+          backgroundColor: "#111111",
+          border: "1px solid rgba(201,169,110,0.2)",
+          padding: "56px 48px",
+          textAlign: "center",
+        }}
       >
-        <div className="text-7xl mb-4 wiggle-anim">😢</div>
+        {/* Accent */}
+        <div
+          style={{
+            color: "rgba(201,169,110,0.4)",
+            fontSize: "2.5rem",
+            marginBottom: "28px",
+            lineHeight: 1,
+          }}
+        >
+          ◇
+        </div>
+
         <h1
-          className="text-3xl font-black mb-2"
-          style={{ color: "#0D0D2B" }}
+          style={{
+            fontFamily: "var(--font-playfair), 'Playfair Display', serif",
+            color: "#F5F0EB",
+            fontSize: "2rem",
+            fontWeight: 700,
+            marginBottom: "12px",
+          }}
         >
           Checkout Canceled
         </h1>
-        <p className="text-lg font-bold opacity-70 mb-6">
-          No worries — your nails are still waiting for you! Come back
-          whenever you&apos;re ready. 💅
+
+        <p
+          style={{
+            color: "#9E9E9E",
+            fontFamily: "var(--font-inter), 'Inter', sans-serif",
+            fontSize: "0.9rem",
+            lineHeight: 1.7,
+            marginBottom: "36px",
+          }}
+        >
+          No worries — your favorites are still waiting. Come back whenever
+          you&apos;re ready.
         </p>
 
         <div
-          className="rounded-xl p-4 mb-6"
-          style={{ backgroundColor: "#FFF8F0", border: "2px solid #FFE500" }}
+          style={{
+            background: "rgba(201,169,110,0.05)",
+            border: "1px solid rgba(201,169,110,0.12)",
+            padding: "18px 20px",
+            marginBottom: "32px",
+            textAlign: "left",
+          }}
         >
-          <p className="text-sm font-semibold">
-            💡 <strong>Quick tip:</strong> All our sets include nail glue —
-            no extra purchase needed!
+          <p
+            style={{
+              color: "#C9A96E",
+              fontFamily: "var(--font-inter), 'Inter', sans-serif",
+              fontSize: "0.7rem",
+              fontWeight: 600,
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              marginBottom: "6px",
+            }}
+          >
+            A Note
+          </p>
+          <p
+            style={{
+              color: "#9E9E9E",
+              fontFamily: "var(--font-inter), 'Inter', sans-serif",
+              fontSize: "0.8rem",
+              lineHeight: 1.6,
+            }}
+          >
+            Nail glue is available as a separate add-on at checkout. Every
+            set is crafted with precision — whenever you&apos;re ready.
           </p>
         </div>
 
-        <div className="flex flex-col gap-3">
-          <Link
-            href="/"
-            className="crayon-btn px-6 py-3 text-center"
-            style={{ backgroundColor: "#FF1F8F", color: "#fff" }}
-          >
-            💅 Back to Shop
+        <div
+          style={{ display: "flex", flexDirection: "column", gap: "12px" }}
+        >
+          <Link href="/" className="btn-gold" style={{ textAlign: "center" }}>
+            Return to Shop
           </Link>
           <Link
             href="/category/kits"
-            className="crayon-btn px-6 py-3 text-center"
-            style={{ backgroundColor: "#0D0D2B", color: "#FFE500" }}
+            className="btn-outline"
+            style={{ textAlign: "center" }}
           >
-            🎁 Shop Kits
+            Browse Nail Kits
           </Link>
           <Link
             href="/category/bundles"
-            className="crayon-btn px-6 py-3 text-center"
-            style={{ backgroundColor: "#8B2BE2", color: "#fff" }}
+            className="btn-outline"
+            style={{ textAlign: "center" }}
           >
-            💝 Shop Bundles
+            View Curated Bundles
           </Link>
         </div>
       </div>
